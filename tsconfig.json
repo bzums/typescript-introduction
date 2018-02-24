@@ -1,0 +1,14 @@
+// see https://basarat.gitbooks.io/typescript/docs/project/tsconfig.html for details regarding `compilerOptions`
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./build",
+    "declaration": true,
+    "lib": ["es6", "es7"]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

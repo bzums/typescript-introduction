@@ -1,0 +1,25 @@
+{
+  "name": "typescript-introduction",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --pretty",
+    "build:watch": "tsc --pretty --watch",
+    "serve": "http-server",
+    "lint": "tslint --project ./tsconfig.json",
+    "start": "npm run build && concurrently \"npm run build:watch\" \"npm run start:nodemon\"",
+    "start:nodemon": "nodemon build/index.js"
+  },
+  "dependencies": {
+    "@types/node": "^9.4.6",
+    "node-fetch": "^2.0.0",
+    "typescript": "^2.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "http-server": "^0.11.1",
+    "nodemon": "^1.15.1",
+    "tslint": "^5.9.1"
+  }
+}
