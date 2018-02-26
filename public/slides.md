@@ -1,5 +1,7 @@
 # A Short Introduction To TypeScript
 
+Bastian Sieker - Software developer at Zalando
+
 ---
 
 ## Agenda
@@ -9,13 +11,30 @@
 3. Features
 4. Hands on
 
+???
+
+* whole project and presentation is online: https://github.com/bzums/typescript-introduction
+
 ---
 
 ## What Is TypeScript?
 
 * Programming language transpiling to JavaScript
-* Optional type system for JavaScript
+  * Statically typed
+  * Type inference
+  * Unlocks "future JavaScript" features
 * Your JavaScript is TypeScript
+
+
+???
+
+* who heard about TypeScript before?
+* who used it already?
+* static vs. dynamic typing
+  * static: type is assoicated with the variable and checked at compile-time
+  * dynamic: type is associated with the value and checked at run-time
+* TypeScript is a superset of JavaScript
+  * features from ECMAScript spec which are not supported by node or browsers can already be used in TypeScript
 
 ---
 
@@ -26,8 +45,9 @@
 
 ???
 
-* history of `class` keyword
-* `interface` keyword
+* in comparison to flow it is its own language
+* `class` keyword in JavaScript/TypeScript
+* TypeScript `interface` keyword
 
 ---
 
@@ -53,12 +73,18 @@
 ### Cons
 
 * Static types do not really decrease bug density
-* Static types add overhead when writing code (most of the time)
+* Types add overhead when writing code (most of the time)
 
 ### Pros
 
 * Implicit documentation of your code
 * Great developer experience due to tooling support
+
+???
+
+* problem of writing documentation in prosa
+  * keep it in sync with the code
+  * ambiguous
 
 ---
 
@@ -95,9 +121,21 @@ const isGreaterThan10 = (x) => x > 10;
 
 ```
 
+<span class="footnote">
+  <span class= "footnote-dot"></span>
+  <a href="https://www.typescriptlang.org/docs/handbook/type-inference.html">
+    https://www.typescriptlang.org/docs/handbook/type-inference.html
+  </a>
+</span>
+
 ???
 
 * TypeScript which is also just some JavaScript
+* behaviour depends on `noImplicitAny` compiler option
+* `any` type: every value will pass the compile-time type-checks
+  * use with caution (there are only a few cases where you actually have to use it)
+  * help when you incrementally what to move a project from JavaScript to TypeScript
+* compare with compiler output: there is not much of a difference (depending on `target` compiler option)
 
 ---
 
@@ -163,8 +201,8 @@ type stringTransformer = (s: string | undefined) => string;
 
 const normalise: stringTransformer = (s) =>
   (s === undefined)
-    : ''
-    ? s.trim().toUpperCase();
+    ? ''
+    : s.trim().toUpperCase();
 
 ```
 
@@ -190,6 +228,11 @@ const composeCommand = (command: string | string[]): string => {
   <span class= "footnote-dot"></span>
   <a href="https://blog.mariusschulz.com/2016/09/30/typescript-2-0-control-flow-based-type-analysis">
     https://blog.mariusschulz.com/2016/09/30/typescript-2-0-control-flow-based-type-analysis
+  </a>
+  <br />
+  <span class= "footnote-dot"></span>
+  <a href="https://egghead.io/lessons/typescript-understand-typescript-s-control-flow-based-type-analysis">
+    Understand TypeScript’s Control Flow Based Type Analysis (Egghead.io)
   </a>
 </span>
 
@@ -222,13 +265,21 @@ const someCar: Car = { age: 12 };
 getAge(someCar);
 ```
 
+???
+
+* this will also work if `Car` is extended further
+  * `Car` just has to have all properties defined in `Human`
+
 ---
 
 ### And Many More...
 
 * Generics
-* Inferred literal types
-* Custom type guards
+* [Inferred literal types](https://blog.mariusschulz.com/2017/01/27/typescript-2-1-improved-inference-for-literal-types)
+* [Function overloads](https://blog.mariusschulz.com/2016/08/18/function-overloads-in-typescript)
+* [`never` type](https://blog.mariusschulz.com/2016/11/18/typescript-2-0-the-never-type)
+* [Type-check JavaScript](https://blog.mariusschulz.com/2017/06/16/typescript-2-3-type-checking-javascript-files-with-checkjs)
+* ...
 
 <span class="footnote">
   <span class= "footnote-dot"></span>
@@ -241,25 +292,15 @@ getAge(someCar);
 
 ### Try It Out
 
-TODO: Link to repo here, so setup and get going
+[https://github.com/bzums/typescript-introduction](https://github.com/bzums/typescript-introduction)
 
----
+???
 
-## Backlog
-
----
-
-### Inferred Literal Types
-
-```ts
-const HTTP_GET = 'GET';    // Inferred type: 'GET'
-const HTTP_POST = 'POST';  // Inferred type: 'POST'
-
-function get(url: string, method: 'GET' | 'POST') {
-    // ...
-}
-
-get('https://example.com/', HTTP_GET);
-```
-
-https://blog.mariusschulz.com/2017/01/27/typescript-2-1-improved-inference-for-literal-types
+* have a look at compiled JavaScript
+* have a look at declaration files
+* show debugging
+* show IDE features:
+  * type previews
+  * auto completion
+  * auto import
+  * jumping to declaration files

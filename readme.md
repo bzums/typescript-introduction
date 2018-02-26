@@ -12,6 +12,6 @@ A presentation and a few simple code examples to support first steps in [TypeScr
 
 ## Presentation
 
-* [https://bzums.rasalhague.uberspace.de/slides/typescript-introduction](https://bzums.rasalhague.uberspace.de/slides/typescript-introduction)
+* Link: TBD
 * or serve yourself: `npm run serve` to provide the slides on `localhost:8080/`
 * type `p` to toggle presenter mode with additional notes

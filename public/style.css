@@ -9,6 +9,7 @@ h3 {
   */
 
 span.footnote {
+  display: block;
   position: absolute;
   bottom: 3em;
 }

@@ -6,7 +6,9 @@
     "sourceMap": true,
     "outDir": "./build",
     "declaration": true,
-    "lib": ["es6", "es7"]
+    "lib": ["es6", "es7"],
+    "strictNullChecks": true
+    //"noImplicitAny": true
   },
   "include": [
     "src/**/*"
