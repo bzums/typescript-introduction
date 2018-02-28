@@ -1,8 +1,9 @@
 const foo = 'foo';
 
-const normalise = (s) => s.trim().toUpperCase();
+type stringTransformer = (s: string) => string;
 
-const preview = (s) => s.substring(0, 10);
+const normalise: stringTransformer = (s) => s.trim().toUpperCase();
+const preview: stringTransformer = (s) => s.substring(0, 10);
 
 normalise(foo);
-preview(foo);
+preview('foobarfoobar');

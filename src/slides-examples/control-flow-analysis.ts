@@ -5,3 +5,6 @@ const composeCommand = (command: string | string[]): string => {
 
   return command.join(' ');
 };
+
+composeCommand(['ls', '-la']);
+composeCommand(['ls']);

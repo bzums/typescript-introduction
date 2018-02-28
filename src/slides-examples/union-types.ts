@@ -1,6 +1,8 @@
-type stringTransformer = (s: string | undefined) => string;
 
-const safeNormalise: stringTransformer = (s) =>
+const safeNormalise = (s: string | undefined) =>
   (s === undefined)
     ? ''
     : s.trim().toUpperCase();
+
+safeNormalise('12');
+safeNormalise(undefined);

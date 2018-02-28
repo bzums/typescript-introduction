@@ -5,7 +5,8 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/build/index.js"
+      "program": "${workspaceFolder}/build/index.js",
+      "preLaunchTask": "npm: build"
     }
   ]
 }
